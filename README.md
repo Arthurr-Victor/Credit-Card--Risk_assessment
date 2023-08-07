@@ -24,3 +24,6 @@ The credit record dataset comprises an applicant's loan payment records, aiding 
 ## What do we want to predict?
 
 Our criterion for defining the target variable is as follows: Customers whose default period exceeds 60 days will be classified as high-risk (status=1), while those whose debt does not surpass this threshold will be considered low-risk.
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/Status.png)
+
