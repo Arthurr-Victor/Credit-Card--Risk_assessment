@@ -10,17 +10,17 @@ Two datasets extracted from Kaggle will be utilized for this project:
 #### Application Record Dataset
 The application record dataset contains comprehensive information about each applicant, encompassing details such as gender, date of birth (DOB), education type, assets, and more. It consists of the following types of variables:
 
-*12 categorical variables*
-*5 continuous variables*
+*12 categorical variables* -
+*5 continuous variables* -
 *1 variable to uniquely identify applicants (applicant ID)*
 
 #### Credit Record Dataset
 The credit record dataset comprises an applicant's loan payment records, aiding in assessing creditworthiness. It encompasses the following variables:
 
-*1 categorical variable*
-*1 continuous variable*
+*1 categorical variable* -
+*1 continuous variable* -
 *1 variable to uniquely identify applicants (applicant ID)*
 
-## What do we what to predict?
+## What do we want to predict?
 
 Our criterion for defining the target variable is as follows: Customers whose default period exceeds 60 days will be classified as high-risk (status=1), while those whose debt does not surpass this threshold will be considered low-risk.
