@@ -34,83 +34,101 @@ Such an imbalance in the target variable is a potential "weakening" factor in ou
 
 After addressing issues such as missing data and duplicates, correcting variable types, and performing other transformations on the dataset, we initiated the analysis of predictor variables that reflect individual client characteristics.
 
-## Exploring Categorical Variables
+### Initial Data Analysis:
 
-To start, I plotted the categorical variables and described the predominant profile present in the data. For example:
+I began by plotting categorical variables and describing the predominant profiles within the data. For instance:
 
-The graph above clearly demonstrates that the majority of clients are full-time salaried employees with formal contracts.
+* The chart above clearly indicates that the majority of clients are full-time fixed employees with signed contracts.
 
-By examining each variable in this manner, we concluded that the predominant profile includes:
+Analyzing each variable, I concluded that the predominant profile consists of:
 
-- Female clientele
-- Married individuals
-- Clients without children
-- Property owners
-- Clients without cars
-- Individuals with a high school education
-- Clients in common full-time employment (CLT).
+* Female customers
+* Married individuals
+* Those without children
+* Homeowners
+* Individuals without a car
+* High school educated
+* Common employment under the CLT regime.
 
-## Hypothesis Testing
+With an understanding of our dataset, I formulated several hypotheses to guide our risk evaluation task.
 
-To address several questions, I conducted hypothesis tests such as Chi-square and ANOVA, using a significance level of 5%. Due to class imbalance, graphical bivariate analysis was not always feasible.
+### Key Questions and Hypotheses:
 
-### Question 1:
+To address our goals, I compiled five key questions:
 
-Based on the results of the Chi-square tests, we can infer a statistically significant association between the predictor variable (property ownership) and the target variable (credit risk status). In other words, clients owning their own property, and thereby being relieved of rental burdens, significantly influence the risk assessment.
+**Question 1:**
+How does ownership of assets, ranging from smaller possessions (e.g., cell phones) to larger ones (e.g., property, cars), influence the client's status? Is there a significant influence?
 
-### Question 2:
+**Question 2:**
+How do demographic variables relate to the client's status? Do any of these variables play a significant role in predicting the target variable?
 
-More notable p-values were observed in demographic variables:
+**Question 3:**
+Is considering annual income important in determining credit approval? Are clients with higher incomes more likely to be reliable payers?
 
-- Gender
-- Marital status
-- Income type (to a slightly lesser extent)
+**Question 4:**
+Does the type of housing provide relevant insights into the target variable, or is it of little importance? Do those who own houses/apartments tend to be more reliable payers?
 
-### Question 3:
+**Question 5:**
+Does the total continuous employment duration of the client lead to any distinct behavior in their status?
 
-The analysis of median "income" values segmented by "status" did not suggest significant influence.
+**Question 6:**
+Does age play a role? Are younger clients less prudent and thus more likely to default?
 
-### Question 4:
+### Hypothesis Testing:
 
-A p-value of 0.21 did not indicate a meaningful association between the two variables.
+To answer these questions, I conducted hypothesis tests such as Chi-square and ANOVA, using a significance level of 5% as a baseline. Due to data imbalance, graphical bivariate analysis was not always viable.
 
-### Question 5:
+**Question 1:**
+Based on the Chi-square test results, we can conclude that there is a statistically significant association between the predictor variable (property ownership) and the target variable (whether the client is risky or not). In other words, owning property and thus being free from rental obligations is relevant and influential in risk analysis.
 
-By applying ANOVA, we assessed whether the segmentation of clients based on years of employment had an impact on the client's risk status. The resulting p-value was 0.0000147, indicating the potential importance of "years employed" for our modeling.
+**Question 2:**
+The most significant p-values were observed in variables:
 
-### Question 6:
+* Gender
+* Marital status
+* Slightly less influential: income type
 
-The p-value of the ANOVA between "age" and "status" was 0.74, exceeding the base significance level of 0.05.
+This suggests that certain demographic profiles are more prone to default.
 
-## Continued Data Preprocessing
+**Question 3:**
+The analysis of median salary segmented by status did not show a significant influence.
 
-With a clearer understanding of our data, we proceeded with further data preprocessing. This involved identifying and addressing outliers using the Local Outlier Factor (LOF) algorithm.
+**Question 4:**
+The p-value of 0.21 does not indicate a consistent association between the two variables.
 
-## Feature Selection
+**Question 5:**
+An ANOVA test was applied to compare the influence of employment duration on the client's risky behavior. The resulting p-value was 0.0000147, indicating that employment duration is likely a crucial variable for our model.
 
-We removed redundant variables and those showing multicollinearity, optimizing our predictive model pipeline.
+**Question 6:**
+The p-value for the ANOVA test between "age" and "status" was 0.74, indicating no significant relationship.
 
-## Model Building
+### Data Preprocessing and Model Building:
 
-Following the pipeline setup, we divided the data into training and testing sets. We utilized the Synthetic Minority Over-sampling Technique (SMOTE) to address class imbalance.
+After outlier identification and removal, I established a pipeline for the model, addressing multicollinearity issues by excluding redundant variables. This pipeline facilitated the use of predictor variables in machine learning modeling.
 
-## Model Evaluation
+With the pipeline ready, data was split into training and testing sets, and the SMOTE algorithm was applied to handle class imbalance. Three models—Random Forest, XGBoost, and Logistic Regression—were evaluated using the AUC metric. The winning model was XGBoost.
 
-We assessed the performance of three models—Random Forest, XGBoost, and Logistic Regression—using the AUC Value. The XGBoost model outperformed the others.
+Best parameters: {'scale_pos_weight': 9, 'n_estimators': 700, 'max_depth': 6, 'max_delta_step': 10, 'learning_rate': 0.3}
+Best AUC score: 0.6140456639522053
 
-Best Parameters: {'scale_pos_weight': 9, 'n_estimators': 700, 'max_depth': 6, 'max_delta_step': 10, 'learning_rate': 0.3}
-Best AUC Score: 0.6140456639522053
+### Threshold Selection and Model Evaluation:
 
-## Fine-Tuning the Model
+To optimize model performance, I determined the probability threshold for class separation (risky vs. low risk) using the F1-score metric, which balances precision and recall. It's important to note that calculating expected value could also be a valuable metric, requiring knowledge of profit/loss from each confusion matrix decision. This approach was utilized in another project of mine, named "Churn Analysis and Prediction."
 
-To extract the best possible results from the model, we set a probability threshold based on the F1-score, which strikes a balance between precision and recall.
+(F1-Score Image)
 
-## Visualizing Results
+An optimal F1-Score point falls between 0 and 0.12. As the majority of instances are labeled as 0, our model predicts most values with low probabilities of risky behavior (status=1), indicating a high probability of low risk.
 
-The optimal F1-score threshold appeared to be between 0 and 0.12. Due to the prevalence of class 0 instances, our model predominantly predicts low occurrence of high-risk users (status=1).
+As an illustrative example, I adjusted the probability threshold to a considerably low value, 0.000005, and plotted a confusion matrix. This resulted in an excellent recall for the positive class (1) but significantly impacted other metrics.
 
-## Final Remarks
+(Confusion Matrix Image)
 
-This README provides a concise overview of the credit risk evaluation project, encompassing statistical tests that shed light on influential variables. It offers valuable insights into the risk assessment process.
+### Final Recommendations:
 
-For detailed analysis and comprehensive findings, please refer to the complete project documentation.
+Following the statistical tests such as Chi-square and ANOVA, and establishing a significance level of 5%, I arrived at the following conclusions:
+
+* Demographic information about clients is crucial for credit risk analysis, particularly marital status, gender, and income type.
+* Ownership of assets like property contributes to risk score classification.
+* Clients with longer employment duration tend to be less risky compared to others.
+
+Feel free to use this project summary as a README to provide an overview of the analysis you conducted.
