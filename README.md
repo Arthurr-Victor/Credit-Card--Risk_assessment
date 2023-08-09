@@ -44,6 +44,7 @@ I began by plotting categorical variables and describing the predominant profile
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/genero.png)  
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/escolaridade.png)
+
 Analyzing each variable, I concluded that the predominant profile consists of:
 
 * Female customers
@@ -85,12 +86,14 @@ To answer these questions, I conducted hypothesis tests such as Chi-square and A
 **Question 1:**
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/Teste%20Chi2%20Imovel.png)
+
 Based on the Chi-square test results, we can conclude that there is a statistically significant association between the predictor variable (property ownership) and the target variable (whether the client is risky or not). In other words, owning property and thus being free from rental obligations is relevant and influential in risk analysis.
 
 **Question 2:**
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/genero2.png)
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/estadocivil2.png)
+
 The most significant p-values were observed in variables:
 
 * Gender
@@ -102,11 +105,13 @@ This suggests that certain demographic profiles are more prone to default.
 **Question 3:**
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/salarioboxplot.png)
+
 The analysis of median salary segmented by status did not show a significant influence.
 
 **Question 4:**
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/tipohabitacao4.png)
+
 The p-value of 0.21 does not indicate a consistent association between the two variables.
 
 **Question 5:**
