@@ -141,6 +141,54 @@ As an illustrative example, I adjusted the probability threshold to a considerab
 
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/confusionmatrix.png)
 
+## Deploying a Machine Learning Model: Making Real-World Impact
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/Credit_deploy.png)
+
+Deploying a machine learning model is a pivotal step, enabling its application in real-world decisions. This involves creating an accessible service, often through APIs, for seamless interaction with systems, applications, or users. Here, we outline the deployment process and key tools, including Flask and Ngrok.
+
+### Model Selection
+After thorough analysis, the XGBoost model was chosen for deployment due to its high AUC score, indicating strong predictive performance.
+
+Selected input features:
+
+- casado(1 ou 0)
+
+- possui_carro(1 ou 0)
+
+- possui_imovel(1 ou 0)
+
+- ensino_superior(1 ou 0)
+
+- salario(float)
+
+- idade(int)
+
+### Flask: Streamlined Web Framework
+
+Flask, a lightweight Python web framework, facilitated model deployment. It enables the creation of a RESTful API that exposes prediction capabilities via HTTP, allowing other applications to send data and receive predictions.
+
+##### Flask deployment steps:
+
+1. Defining a Flask app: Creating and configuring routes for incoming requests.
+2. Model integration: Loading the pre-trained XGBoost model.
+3. Data preprocessing: Transforming incoming data to the model's required format.
+4. Prediction endpoint: Establishing an API endpoint for making predictions.
+
+### Ngrok: Bridging Local and Global
+
+Ngrok was utilized to make the Flask app accessible online. It establishes a secure tunnel from the locally hosted server, enabling external applications to interact with the deployed model.
+
+##### Ngrok deployment process:
+
+1. Installation: Downloading and installing Ngrok.
+2. Server exposure: Running Ngrok to expose the Flask app externally.
+3. Generating a public URL: Ngrok provides a public URL for sending requests to the Flask app.
+4. Conclusion: Unlocking Real-World Potential
+5. Deploying a machine learning model involves transforming it into a practical tool for real-world applications. Through Flask and Ngrok integration, we've successfully created an API endpoint, allowing seamless interaction with our XGBoost model for credit risk assessment.
+
+As you progress with deployment, consider scalability, security, and monitoring. Ensuring the model maintains its accuracy and responsiveness in a production environment is crucial for successful credit risk assessment outcomes.
+
 ### Final Recommendations:
 
 Following the statistical tests such as Chi-square and ANOVA, and establishing a significance level of 5%, I arrived at the following conclusions:
