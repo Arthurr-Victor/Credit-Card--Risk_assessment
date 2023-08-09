@@ -38,8 +38,12 @@ After addressing issues such as missing data and duplicates, correcting variable
 
 I began by plotting categorical variables and describing the predominant profiles within the data. For instance:
 
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/tiporenda.png)
+
 * The chart above clearly indicates that the majority of clients are full-time fixed employees with signed contracts.
 
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/genero.png)  
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/escolaridade.png)
 Analyzing each variable, I concluded that the predominant profile consists of:
 
 * Female customers
@@ -85,7 +89,7 @@ Based on the Chi-square test results, we can conclude that there is a statistica
 
 **Question 2:**
 
-![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/estadocivil2.png)
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/genero2.png)
 ![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/estadocivil2.png)
 The most significant p-values were observed in variables:
 
@@ -96,9 +100,13 @@ The most significant p-values were observed in variables:
 This suggests that certain demographic profiles are more prone to default.
 
 **Question 3:**
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/salarioboxplot.png)
 The analysis of median salary segmented by status did not show a significant influence.
 
 **Question 4:**
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/tipohabitacao4.png)
 The p-value of 0.21 does not indicate a consistent association between the two variables.
 
 **Question 5:**
@@ -120,13 +128,13 @@ Best AUC score: 0.6140456639522053
 
 To optimize model performance, I determined the probability threshold for class separation (risky vs. low risk) using the F1-score metric, which balances precision and recall. It's important to note that calculating expected value could also be a valuable metric, requiring knowledge of profit/loss from each confusion matrix decision. This approach was utilized in another project of mine, named "Churn Analysis and Prediction."
 
-(F1-Score Image)
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/f1-score.png)
 
 An optimal F1-Score point falls between 0 and 0.12. As the majority of instances are labeled as 0, our model predicts most values with low probabilities of risky behavior (status=1), indicating a high probability of low risk.
 
 As an illustrative example, I adjusted the probability threshold to a considerably low value, 0.000005, and plotted a confusion matrix. This resulted in an excellent recall for the positive class (1) but significantly impacted other metrics.
 
-(Confusion Matrix Image)
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/confusionmatrix.png)
 
 ### Final Recommendations:
 
