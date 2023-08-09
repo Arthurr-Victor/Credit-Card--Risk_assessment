@@ -59,7 +59,7 @@ With an understanding of our dataset, I formulated several hypotheses to guide o
 
 ### Key Questions and Hypotheses:
 
-To address our goals, I compiled five key questions:
+To address our goals, I compiled six key questions:
 
 **Question 1:**
 _How does ownership of assets, ranging from smaller possessions (e.g., cell phones) to larger ones (e.g., property, cars), influence the client's status? Is there a significant influence?_
