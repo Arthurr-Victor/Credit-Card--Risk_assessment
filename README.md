@@ -57,31 +57,36 @@ With an understanding of our dataset, I formulated several hypotheses to guide o
 To address our goals, I compiled five key questions:
 
 **Question 1:**
-How does ownership of assets, ranging from smaller possessions (e.g., cell phones) to larger ones (e.g., property, cars), influence the client's status? Is there a significant influence?
+_How does ownership of assets, ranging from smaller possessions (e.g., cell phones) to larger ones (e.g., property, cars), influence the client's status? Is there a significant influence?_
 
 **Question 2:**
-How do demographic variables relate to the client's status? Do any of these variables play a significant role in predicting the target variable?
+_How do demographic variables relate to the client's status? Do any of these variables play a significant role in predicting the target variable?_
 
 **Question 3:**
-Is considering annual income important in determining credit approval? Are clients with higher incomes more likely to be reliable payers?
+_Is considering annual income important in determining credit approval? Are clients with higher incomes more likely to be reliable payers?_
 
 **Question 4:**
-Does the type of housing provide relevant insights into the target variable, or is it of little importance? Do those who own houses/apartments tend to be more reliable payers?
+_Does the type of housing provide relevant insights into the target variable, or is it of little importance? Do those who own houses/apartments tend to be more reliable payers?_
 
 **Question 5:**
-Does the total continuous employment duration of the client lead to any distinct behavior in their status?
+_Does the total continuous employment duration of the client lead to any distinct behavior in their status?_
 
 **Question 6:**
-Does age play a role? Are younger clients less prudent and thus more likely to default?
+_Does age play a role? Are younger clients less prudent and thus more likely to default?_
 
 ### Hypothesis Testing:
 
 To answer these questions, I conducted hypothesis tests such as Chi-square and ANOVA, using a significance level of 5% as a baseline. Due to data imbalance, graphical bivariate analysis was not always viable.
 
 **Question 1:**
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/Teste%20Chi2%20Imovel.png)
 Based on the Chi-square test results, we can conclude that there is a statistically significant association between the predictor variable (property ownership) and the target variable (whether the client is risky or not). In other words, owning property and thus being free from rental obligations is relevant and influential in risk analysis.
 
 **Question 2:**
+
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/estadocivil2.png)
+![Exemplo de Imagem](https://github.com/Arthurr-Victor/Credit-Card--Risk_assessment/blob/main/Images/estadocivil2.png)
 The most significant p-values were observed in variables:
 
 * Gender
